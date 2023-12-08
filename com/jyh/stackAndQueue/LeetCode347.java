@@ -8,7 +8,7 @@ import java.util.*;
  * leetcode url : https://leetcode.cn/problems/top-k-frequent-elements/
  * 代码随想录 url : https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0347.%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0.md
  */
-public class LeetCode_347 {
+public class LeetCode347 {
     public static void main(String[] args) {
         int[] nums = {1,1,1,2,2,3};
         int k = 2;

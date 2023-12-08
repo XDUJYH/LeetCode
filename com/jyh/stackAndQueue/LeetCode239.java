@@ -3,7 +3,6 @@ package com.jyh.stackAndQueue;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 239. 滑动窗口最大值
@@ -11,7 +10,7 @@ import java.util.List;
  * 代码随想录 url : https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0239.%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC.md
  * 官方题解比自己写的要清晰地多！建议看官方题解
  */
-public class LeetCode_239 {
+public class LeetCode239 {
     public static void main(String[] args) {
         int[] nums = {-7,-8,7,5,7,1,6,0};
         int k = 4;
