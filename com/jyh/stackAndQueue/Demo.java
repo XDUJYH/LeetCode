@@ -8,9 +8,10 @@ public class Demo {
         System.out.println(s1);
 
     }
+
+    static class Solution {
+        public void ProblemName() {
+            System.out.println("hello");
+        }
+    }
 }
-class Solution {
-    public void ProblemName() {
-        System.out.println("hello");
-    }
-    }
