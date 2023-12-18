@@ -29,11 +29,11 @@ public class LeetCode257 {
         }
         public List<String> treePaths(TreeNode root, LinkedList<Integer> prePath, List<String> result){
             if(root.left == null && root.right == null){
-                prePath.push(root.val);
+                prePath.offerLast(root.val);
                 //存入result
                 String resultString = "";
-                for (int i = prePath.size() - 1 ; i >= 0; i--) {
-                    if(i == 0){
+                for (int i = 0 ; i < prePath.size(); i++) {
+                    if(i == prePath.size() - 1){
                         resultString = resultString + prePath.get(i).toString();
                     }
                     else{
@@ -43,10 +43,10 @@ public class LeetCode257 {
                 }
                 result.add(resultString);
                 //弹出栈顶元素
-                prePath.pop();
+                prePath.removeLast();
                 return result;
             }
-            prePath.push(root.val);
+            prePath.offerLast(root.val);
             if(root.left != null){
                 treePaths(root.left, prePath, result);
             }
@@ -54,7 +54,7 @@ public class LeetCode257 {
             if(root.right != null){
                 treePaths(root.right, prePath, result);
             }
-            prePath.pop();
+            prePath.removeLast();
             return result;
         }
     }
