@@ -7,7 +7,7 @@ public class LeetCode437 {
     /**
      * 437. 路径总和 III
      * leetcode url : https://leetcode.cn/problems/path-sum-iii/
-     *
+     * 只能说非常巧妙。涉及前缀和和哈希表的使用，并且如何使用也非常具有细节。
      *
      */
     public static void main(String[] args) {
@@ -21,35 +21,31 @@ public class LeetCode437 {
 
     static class Solution {
         public int pathSum(TreeNode root, int targetSum) {
-            int sum = 0;
-            List<LinkedList<Integer>> paths = new LinkedList<>();
-            LinkedList<Integer> queue = new LinkedList<>();
-            getPaths(root, paths, queue);
-            for (int i = 0; i < paths.size() - 1; i++) {
-                for(int j = i + 1; j < paths.size() ; j++){
-
-                }
-
+            if (root == null) {
+                return 0;
             }
-            return 0;
+
+            int ret = rootSum(root, targetSum);
+            ret += pathSum(root.left, targetSum);
+            ret += pathSum(root.right, targetSum);
+            return ret;
         }
-        public void getPaths (TreeNode root, List<LinkedList<Integer>> paths, LinkedList<Integer> dequeue){
-            //到达叶子节点，存储这条路径
-            if(root.left == null && root.right == null){
-                dequeue.offerLast(root.val);
-                paths.add(new LinkedList<>(dequeue));
-                dequeue.pollLast();
-                return ;
+
+        public int rootSum(TreeNode root, int targetSum) {
+            int ret = 0;
+
+            if (root == null) {
+                return 0;
             }
-            dequeue.offerLast(root.val);
-            if(root.left!=null){
-                getPaths(root.left, paths, dequeue);
+            int val = root.val;
+            if (val == targetSum) {
+                ret++;
             }
-            if(root.right!=null){
-                getPaths(root.right, paths, dequeue);
-            }
-            dequeue.pollLast();
-            return ;
+
+            ret += rootSum(root.left, targetSum - val);
+            ret += rootSum(root.right, targetSum - val);
+            return ret;
         }
     }
 }
+
